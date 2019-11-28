@@ -1,0 +1,17 @@
+<div *ngIf="messageService.messages.length">
+
+  <h2>Messages</h2>
+  <button class="clear"
+          (click)="messageService.clear()">clear</button>
+
+  <h4>Pick a highlight color for message show style, default color is red</h4>
+  <div class="high-class">
+    <input type="radio" name="colors" (click)="color='lightgreen'">Green
+    <input type="radio" name="colors" (click)="color='yellow'">Yellow
+    <input type="radio" name="colors" (click)="color='cyan'">Cyan
+  </div>
+
+  <div *ngFor='let message of messageService.messages'
+       appHighlight [highlightColor]="color"> {{message}} </div>
+
+</div>
